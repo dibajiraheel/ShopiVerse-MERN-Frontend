@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@plugin "daisyui";
+
+
+
+@font-face {
+    font-family: cardTitle;
+    src: url('./src/assests/fonts/PoetsenOne-Regular.ttf');
+}
+
+
+@font-face {
+  font-family: handWriting;
+  src: url('./src/assests/fonts/Caveat-Regular.ttf');
+}
+
+@theme {
+  --font-handWriting: handWriting, "sans-serif"
+}
