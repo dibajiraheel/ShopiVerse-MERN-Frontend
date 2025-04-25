@@ -36,7 +36,8 @@ const LoadCustomerStates = ({children}) => {
     // check each slice state one by one
     const dispatch = useDispatch()
     const customerId = getCookie('_id')
-
+    console.log('CUSTOMER ID FOUND IN CUSTOMER STATES', customerId);
+    
     // 1. customer items slice
     const items = useSelector(state => state.customerItemsStore.items)
     const totalItems = useSelector(state => state.customerItemsStore.totalItems)
@@ -65,6 +66,8 @@ const LoadCustomerStates = ({children}) => {
     const [ordersFetched, setOrdersFetched] = useState(false)
 
     const FetchOrders = async () => {
+        console.log('FETCHING ORDERS IN CUSTOMER STATES WITH CUSTOMER ID  =', customerId);
+        
         const response = await GetCustomerOrders(customerId, 0, cardsToDisplayOnOnePage)
         console.log('FETCH ORDERS CALLED IN HERE AND RESPONSE IS THIS', response);
         

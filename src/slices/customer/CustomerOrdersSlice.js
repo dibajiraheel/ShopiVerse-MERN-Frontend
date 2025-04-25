@@ -24,7 +24,7 @@ const customerOrdersSlice = createSlice({
             const pageNo = action.payload.pageNo
             const totalOrders = action.payload.totalOrders
 
-            if (newOrders.length == 0) return
+            if (newOrders?.length == 0 || (!newOrders)) return
 
             const currentOrders = [...(state.orders)]
             
