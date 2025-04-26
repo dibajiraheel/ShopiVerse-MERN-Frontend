@@ -20,7 +20,7 @@ const Navbar = ({
   // buttons = [{'text' : 'profile'}, {'text' : 'profile'}, {'text' : 'profile'}, {'text' : 'profile'}, {'text' : 'profile'}, {'text' : 'profile'}, {'text' : 'profile'}, {'text' : 'profile'}],
 }) => {
   const themeMode = useSelector(state => state.themeStore.mode)
-  const profilePicUrl = getCookie('profilePicUrl')
+  const profilePicUrl = useSelector(state => state.authenticationStore.profilePicUrl)
   const [profileNavigate] = useState('/customer/profile')
 
   const [input, setInput] = useState('')

@@ -67,7 +67,7 @@ const Navbar = ({
   const profilePic = useSelector(state => state.authenticationStore.profilePicUrl)
   useEffect(() => {
 
-    setAppMode(mode),
+    setAppMode(mode)
     setProfilePicUrl(profilePic)
     setNoOfItemsInCart(totalItemsInCart)
     setTotalAmount(totalPrice)
@@ -77,7 +77,7 @@ const Navbar = ({
     console.log('BUTTON RECEIVED IN NAVBAR', buttons);
     
 
-  }, [mode, totalItemsInCart, totalPrice, profileUrl])
+  }, [mode, totalItemsInCart, totalPrice, profilePicUrl])
 
 
   return (
