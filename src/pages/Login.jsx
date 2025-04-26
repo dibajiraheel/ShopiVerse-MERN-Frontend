@@ -5,7 +5,8 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import Switch from "../ui components/Switch"; // Import the toggle switch
 import Login from "../api/auth/Login";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { UpdateAuthenticationInStore } from "../slices/AuthenticationSlice";
 
 const LoginPage = () => {
   const navigate = useNavigate(); // Initialize navigate function
@@ -18,6 +19,8 @@ const LoginPage = () => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
+
+  const dispatch = useDispatch()
   const handleLogin = async (data) => {
     if (!(data.email && data.password)) return;
     setLoading(true);
@@ -35,6 +38,7 @@ const LoginPage = () => {
       } else {
         // Navigate to home page or home on successful login
         navigate("/home");
+        dispatch(UpdateAuthenticationInStore({authenticated: true}))
       }
     } else {
       const response = await Login(data, "seller");
@@ -47,6 +51,7 @@ const LoginPage = () => {
       } else {
         // Navigate to dashboard or home on successful login
         navigate("/dashboard");
+        dispatch(UpdateAuthenticationInStore({authenticated: true}))
       }
     }
   };

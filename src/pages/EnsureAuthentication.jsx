@@ -1,32 +1,58 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { getCookie } from 'react-use-cookie'
+import GetAuthorization from '../api/auth/GetAuthorization'
+import { UpdateAuthenticationInStore } from '../slices/AuthenticationSlice'
 
 const EnsureAuthentication = ({authenticationRequired, children}) => {
     
-    const accessToken = getCookie('accessToken')
-    const _id = getCookie('_id')
+    const userAuthenticatedInStore = useSelector(state => state.authenticationStore.authenticated)
+    const dispatch = useDispatch()
+    const [authenticatedVerifiedFromBackend, setAuthenticatedVerifiedFromBackend] = useState(true)
+    const [alreadyAuthenticatedVerifiedFromBackend, setAlreadyAuthenticatedVerifiedFromBackend] = useState(false)
+    // const [authenticatedFoundInStore, setAuthenticatedFoundInStore] = useState(true)
 
     const [authenticated, setAuthenticated] = useState(false)
     console.log('AUTH REQUIRED', authenticationRequired);
     
     const navigate = useNavigate()
     useEffect(() => {
+        console.log('ENSURE AUTHENTICATION USER EFFECT FIRST CALLED');
+        
         if (!authenticationRequired) setAuthenticated(true)
         else {
-            if ((accessToken) && (accessToken != 'null') && (accessToken != '') && ((_id) && (_id != 'null') && (_id != ''))){
-                console.log('ACCESS TOKEN VALID', accessToken);
-                console.log('ID VALID', _id);
-                
+            if (userAuthenticatedInStore){
+                console.log('User Authenticated In Store', userAuthenticatedInStore);
                 setAuthenticated(true)
             }
             else {
-                navigate('/login')
+                if (!alreadyAuthenticatedVerifiedFromBackend){
+                    setAuthenticatedVerifiedFromBackend(false)
+                }
             }
         }
-    }, [authenticationRequired])
+    }, [authenticationRequired, userAuthenticatedInStore])
 
 
+    const FetchAuthorization = async () => {
+        const response = await GetAuthorization()
+        setAuthenticatedVerifiedFromBackend(true)
+        setAlreadyAuthenticatedVerifiedFromBackend(true)
+        if (!response) {
+            dispatch(UpdateAuthenticationInStore({authenticated: false}))
+            return
+        }
+        dispatch(UpdateAuthenticationInStore({authenticated: true}))
+        return
+    }
+
+    useEffect(() => {
+        console.log('ENSURE AUTHENTICATION USER EFFECT SECOND CALLED');
+
+        if ((!userAuthenticatedInStore) && (!authenticatedVerifiedFromBackend)) {
+            FetchAuthorization()
+        }
+    }, [userAuthenticatedInStore, authenticatedVerifiedFromBackend])
 
     if (authenticated) {
         return (

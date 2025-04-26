@@ -6,19 +6,22 @@ import Input from "../components/Input";
 import Switch from "../ui components/Switch"; // Import the toggle switch
 import Signup from "../api/auth/Signup";
 import Login from "../api/auth/Login"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppleIcon } from "lucide-react";
+import { UpdateAuthenticationInStore } from "../slices/AuthenticationSlice";
 
 const LoginPage = () => {
   const navigate = useNavigate(); // Initialize navigate function
 
   const themeMode = useSelector(state => state.themeStore.mode)
+  const dispatch = useDispatch()
 
   const { control, handleSubmit } = useForm();
   const [isSellerMode, setIsSellerMode] = useState(false);
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState(false);
 
+  
   const handleSignup = async (data) => {
     if (!(data.email && data.password)) return;
     setLoading(true);
@@ -37,6 +40,7 @@ const LoginPage = () => {
         if (loginResponse.statusCode == 200) {
           console.log('LOGIN SUCCESSFULL');
           navigate("/home")
+          dispatch(UpdateAuthenticationInStore({authenticated: true}))
         }
         
       }
@@ -54,6 +58,7 @@ const LoginPage = () => {
         if (loginResponse.statusCode == 200) {
           console.log('LOGIN SUCCESSFULL');
           navigate("/dashboard")
+          dispatch(UpdateAuthenticationInStore({authenticated: true}))
         }
       }
     }

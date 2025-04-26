@@ -9,6 +9,7 @@ import { ResetCustomerOrdersSlice } from '../../slices/customer/CustomerOrdersSl
 import { ResetItemsInCustomerSlice } from '../../slices/customer/CustomerItemsSlice'
 import { ResetItemReviewsInCustomerSlice } from '../../slices/customer/CustomerItemReviewsSlice'
 import { ResetProfileInCustomerSlice } from '../../slices/customer/CustomerProfileSlice'
+import { UpdateAuthenticationInStore } from '../../slices/AuthenticationSlice'
 
 const Navbar = ({
   customerShopiVersaNavigateUrl,
@@ -30,6 +31,7 @@ const Navbar = ({
     dispatch(ResetItemsInCustomerSlice())
     dispatch(ResetItemReviewsInCustomerSlice())
     dispatch(ResetProfileInCustomerSlice())
+    dispatch(UpdateAuthenticationInStore({authenticated: false}))
     
     setCookie('_id', null)
     setCookie('profilePicUrl', null)

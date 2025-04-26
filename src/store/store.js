@@ -12,12 +12,14 @@ import customerItemReviewsSlice from "../slices/customer/CustomerItemReviewsSlic
 import customerCartSlice from "../slices/customer/CustomerCartSlice"
 import customerOrdersSlice from "../slices/customer/CustomerOrdersSlice"
 import customerProfileSlice from "../slices/customer/CustomerProfileSlice"
+import authenticationSlice from "../slices/AuthenticationSlice"
 
 
 const store = configureStore({
     reducer: {
         //common slices
         'themeStore': themeSlice,
+        'authenticationStore': authenticationSlice,
 
         //seller slices
         'sellerOrderStore': sellerOrderSlice,
