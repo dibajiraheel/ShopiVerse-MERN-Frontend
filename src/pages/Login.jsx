@@ -7,6 +7,7 @@ import Switch from "../ui components/Switch"; // Import the toggle switch
 import Login from "../api/auth/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateAuthenticationInStore } from "../slices/AuthenticationSlice";
+import config from "../../config";
 
 const LoginPage = () => {
   const navigate = useNavigate(); // Initialize navigate function
@@ -166,8 +167,8 @@ const LoginPage = () => {
         <Link
           to={
             isSellerMode
-              ? "http://localhost:8000/auth/seller/google"
-              : "http://localhost:8000/auth/customer/google"
+              ? config.sellergoogleloginapiurl
+              : config.customergoogleloginapiurl
           }
         >
           <Button
