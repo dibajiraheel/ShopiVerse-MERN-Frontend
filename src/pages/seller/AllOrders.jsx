@@ -202,7 +202,7 @@ const AllOrders = () => {
     <div className="min-w-screen min-h-screen">
 
       <div>
-        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
       </div>
 
       <div className='my-20 flex flex-row w-fit mx-auto border-transparent rounded-4xl px-5 py-3 justify-center items-center bg-cyan-600 font-extrabold italic shadow-xl shadow-white scale-90 hover:shadow-purple-400 hover:shadow-2xl hover:scale-95 duration-700'>
@@ -291,7 +291,7 @@ const AllOrders = () => {
     <div className="min-w-screen min-h-screen">
 
       <div>
-        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
       </div>
 
       <div className={`pt-30 flex flex-row justify-center items-center text-4xl italic font-extrabold ${themeMode == 'dark' ? 'text-white' : 'text-black'}`}> 

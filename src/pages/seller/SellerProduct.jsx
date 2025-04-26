@@ -191,7 +191,7 @@ const SellerProduct = () => {
 
   return item ? (
     <div>
-      <Navbar buttons={navbarButtons} mode="seller" dashboardNavigateLink="/dashboard" profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+      <Navbar buttons={navbarButtons} mode="seller" dashboardNavigateLink="/dashboard" profileNavigateLink={'/seller/profile'} />
   
       <div
         className={`pt-32 min-h-screen w-full max-w-5xl mx-auto px-4 py-10 rounded-3xl shadow-xl ${

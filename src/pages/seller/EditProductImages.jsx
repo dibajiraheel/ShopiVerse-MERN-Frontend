@@ -56,7 +56,7 @@ const EditProductImages = () => {
     <div className='min-w-screen min-h-screen'>
 
         <div>
-            <Navbar buttons={sellerButtons()} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+            <Navbar buttons={sellerButtons()} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
         </div>
 
         <div className='pt-20'>

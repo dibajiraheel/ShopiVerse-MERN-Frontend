@@ -77,7 +77,6 @@ const SellerProfile = () => {
                 buttons={sellerbuttons}
                 mode={'seller'}
                 dashboardNavigateLink={'/dashboard'}
-                profileUrl={getCookie('profilePicUrl')}
                 profileNavigateLink={'/seller/profile'}
               />
             </div>
@@ -139,7 +138,7 @@ const SellerProfile = () => {
             <div className='min-w-screen min-h-screen'>
                 
                 <div>
-                    <Navbar buttons={sellerbuttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+                    <Navbar buttons={sellerbuttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
                 </div>
 
                 

@@ -145,7 +145,7 @@ const EditProduct = () => {
     <div
       className={`min-w-screen min-h-screen ${themeMode === 'dark' ? 'bg-transparent text-white' : 'bg-gray-100 text-black'}`}
     >
-      <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+      <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
 
       {/* MultiCategory Selector - OUTSIDE the form */}
       <div className="pt-24 px-4 md:px-12 flex flex-col items-center">

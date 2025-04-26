@@ -169,7 +169,7 @@ const AllProducts = () => {
       <div>
         <Navbar buttons={buttons}
                 mode={'seller'}
-                dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+                dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
       </div>
       
       <div className='flex flex-col justify-center items-center mt-16'>

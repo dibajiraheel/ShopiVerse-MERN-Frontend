@@ -40,7 +40,7 @@ const LoginPage = () => {
         if (loginResponse.statusCode == 200) {
           console.log('LOGIN SUCCESSFULL');
           navigate("/home")
-          dispatch(UpdateAuthenticationInStore({authenticated: true}))
+          // dispatch(UpdateAuthenticationInStore({authenticated: true}))
         }
         
       }
@@ -58,7 +58,7 @@ const LoginPage = () => {
         if (loginResponse.statusCode == 200) {
           console.log('LOGIN SUCCESSFULL');
           navigate("/dashboard")
-          dispatch(UpdateAuthenticationInStore({authenticated: true}))
+          // dispatch(UpdateAuthenticationInStore({authenticated: true}))
         }
       }
     }

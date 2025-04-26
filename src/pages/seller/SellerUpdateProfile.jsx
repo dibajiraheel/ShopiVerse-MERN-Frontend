@@ -88,7 +88,6 @@ const UpdateSellerProfile = () => {
         buttons={sellerButtons()}
         mode={'seller'}
         dashboardNavigateLink={'/dashboard'}
-        profileUrl={getCookie('profilePicUrl')}
         profileNavigateLink={'/seller/profile'}
       />
 

@@ -21,7 +21,6 @@ const Navbar = ({
     homeNavigateLink,
     dashboardNavigateLink,
     profileNavigateLink,
-    profileUrl
 
 }) => {
 
@@ -63,10 +62,13 @@ const Navbar = ({
   // app mode
   const [appMode, setAppMode] = useState(mode)
 
+
+  // get profile pic from Store
+  const profilePic = useSelector(state => state.authenticationStore.profilePicUrl)
   useEffect(() => {
 
     setAppMode(mode),
-    setProfilePicUrl(profileUrl)
+    setProfilePicUrl(profilePic)
     setNoOfItemsInCart(totalItemsInCart)
     setTotalAmount(totalPrice)
     setShopiVerseNavigateLink(homeNavigateLink)

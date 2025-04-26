@@ -189,7 +189,7 @@ const ActiveOrders = () => {
     <div className="min-w-screen min-h-screen">
 
       <div>
-        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
       </div>
 
       <div className="pt-20 flex flex-col justify-center items-center">
@@ -246,7 +246,7 @@ const ActiveOrders = () => {
     <div className="min-w-screen min-h-screen">
 
       <div>
-        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileUrl={getCookie('profilePicUrl')} profileNavigateLink={'/seller/profile'} />
+        <Navbar buttons={buttons} mode={'seller'} dashboardNavigateLink={'/dashboard'} profileNavigateLink={'/seller/profile'} />
       </div>
 
       <div className={`pt-30 flex flex-row justify-center items-center text-4xl italic font-extrabold ${themeMode == 'dark' ? 'text-white' : 'text-black'}`}> 

@@ -29,6 +29,9 @@ const EnsureAuthentication = ({authenticationRequired, children}) => {
                 if (!alreadyAuthenticatedVerifiedFromBackend){
                     setAuthenticatedVerifiedFromBackend(false)
                 }
+                else {
+                    navigate('/login')
+                }
             }
         }
     }, [authenticationRequired, userAuthenticatedInStore])
@@ -38,11 +41,13 @@ const EnsureAuthentication = ({authenticationRequired, children}) => {
         const response = await GetAuthorization()
         setAuthenticatedVerifiedFromBackend(true)
         setAlreadyAuthenticatedVerifiedFromBackend(true)
+        console.log('RESPONSE OF AUTHENTICATION FROM BACKEND', response);
+        
         if (!response) {
-            dispatch(UpdateAuthenticationInStore({authenticated: false}))
+            dispatch(UpdateAuthenticationInStore({authenticated: false, profilePicUrl: response.profilePicUrl}))
             return
         }
-        dispatch(UpdateAuthenticationInStore({authenticated: true}))
+        dispatch(UpdateAuthenticationInStore({authenticated: true, profilePicUrl: response.profilePicUrl}))
         return
     }
 

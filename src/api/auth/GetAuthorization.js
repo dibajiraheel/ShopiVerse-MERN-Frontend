@@ -11,7 +11,7 @@ const api = axios.create({
 const GetAuthorization = async () => {
     const response = await api.get('/auth/authorization')
     if (response.data.statusCode != 200) return false
-    return true 
+    return response.data.data 
 }
 
 

@@ -38,7 +38,7 @@ const LoginPage = () => {
       } else {
         // Navigate to home page or home on successful login
         navigate("/home");
-        dispatch(UpdateAuthenticationInStore({authenticated: true}))
+        // dispatch(UpdateAuthenticationInStore({authenticated: true}))
       }
     } else {
       const response = await Login(data, "seller");
@@ -51,7 +51,7 @@ const LoginPage = () => {
       } else {
         // Navigate to dashboard or home on successful login
         navigate("/dashboard");
-        dispatch(UpdateAuthenticationInStore({authenticated: true}))
+        // dispatch(UpdateAuthenticationInStore({authenticated: true}))
       }
     }
   };
