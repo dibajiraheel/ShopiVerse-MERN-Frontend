@@ -11,7 +11,7 @@ const api = axios.create({
 
 const GetCustomerProfile = async (customerId) => {
     try {
-        const response = await api.get(`/auth/customer/profile/${customerId}`)
+        const response = await api.get(`/auth/customer/profile`)
         if (response.data.statusCode != 200) return false
         return response.data.data
     } catch (error) {

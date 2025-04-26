@@ -9,7 +9,7 @@ const api = axios.create({
 const GetSellerOrders = async (sellerId, skip, limit, dispatch) => {
 
     try {
-        const response = await api.get(`/seller-order/get-seller-order-limited/${sellerId}/${skip}/${limit}`)
+        const response = await api.get(`/seller-order/get-seller-order-limited/${skip}/${limit}`)
         if (response.data.statusCode == 200) {
             console.log('API ORDER RECEIVED', response.data);
             return response.data.data

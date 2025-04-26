@@ -11,7 +11,7 @@ const api = axios.create({
 
 const UpdateItem = async (data, itemId, sellerId) => {
     try {
-       const response = await api.post(`/item/update-item-bio/${itemId}/${sellerId}`, data)
+       const response = await api.post(`/item/update-item-bio/${itemId}`, data)
        if (response.data.statusCode != 200) return false
        return true
     } catch (error) {

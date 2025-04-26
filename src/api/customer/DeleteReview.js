@@ -11,7 +11,7 @@ const api = axios.create({
 
 const DeleteReview = async (itemId, customerId, reviewId) => {
     try {
-        const response = await api.delete(`/review/delete-review/${itemId}/${customerId}/${reviewId}`)
+        const response = await api.delete(`/review/delete-review/${itemId}/${reviewId}`)
         if (response.data.statusCode != 200) return false
         return true
     } catch (error) {

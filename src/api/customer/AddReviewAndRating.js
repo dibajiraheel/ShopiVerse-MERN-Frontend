@@ -11,7 +11,7 @@ const api = axios.create({
 
 const AddReviewAndRating = async (itemId, customerId, data) => {
     try {
-        const response = await api.post(`/review/add-review/${itemId}/${customerId}`, data)
+        const response = await api.post(`/review/add-review/${itemId}`, data)
         if (response.data.statusCode != 200) return false
         return response.data.data
     } catch (error) {

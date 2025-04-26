@@ -10,7 +10,7 @@ const api = axios.create({
 
 const DeleteItem = async (itemId, sellerId) => {
     try {
-        const response = await api.delete(`/item/delete-item/${itemId}/${sellerId}`)
+        const response = await api.delete(`/item/delete-item/${itemId}`)
         console.log('RESPONSE AFTER CALLING API', response);
         
         if (response.data.statusCode != 200) return false

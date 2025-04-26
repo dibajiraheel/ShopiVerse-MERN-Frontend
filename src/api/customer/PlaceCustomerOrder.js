@@ -9,7 +9,7 @@ const api = axios.create({
 
 const PlaceCustomerOrder = async (customerId) => {
     try {
-        const response = await api.post(`/customer-order/add-customer-order/${customerId}`)
+        const response = await api.post(`/customer-order/add-customer-order`)
         console.log('RESPONSE IN API', response);
         
         if (response.data.statusCode != 200) return false

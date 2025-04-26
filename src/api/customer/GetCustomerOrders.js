@@ -11,7 +11,7 @@ const api = axios.create({
 
 const GetCustomerOrders = async (customerId, skip, limit) => {
     try {
-        const response = await api.get(`/customer-order/get-customer-order/${customerId}/${skip}/${limit}`)
+        const response = await api.get(`/customer-order/get-customer-order/${skip}/${limit}`)
         if (response.data.statusCode != 200) return false
         return response.data.data
     } catch (error) {

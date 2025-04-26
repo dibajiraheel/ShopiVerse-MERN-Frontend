@@ -11,7 +11,7 @@ const UpdateItemImages = async (data, itemId, sellerId) => {
     try {
         console.log('DATA RECEIVED IN API', data);
         
-        const response = await api.post(`/item/update-item-images/${itemId}/${sellerId}`, data)
+        const response = await api.post(`/item/update-item-images/${itemId}`, data)
         if (response.data.statusCode != 200) return false
         return response.data.data
     } catch (error) {

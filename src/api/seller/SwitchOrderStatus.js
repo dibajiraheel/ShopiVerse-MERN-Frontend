@@ -13,7 +13,7 @@ const SwitchOrderStatus = async (orderId, sellerId, isCompleted) => {
     console.log('SWITCH ORDER STATUS CALLED', orderId, sellerId, isCompleted);
     
     try {
-        const response = await api.post(`/seller-order/update-seller-order-status/${orderId}/${sellerId}/${isCompleted}`)
+        const response = await api.post(`/seller-order/update-seller-order-status/${orderId}/${isCompleted}`)
         console.log('response', response);
         
         if (response.data.message == 'success') {

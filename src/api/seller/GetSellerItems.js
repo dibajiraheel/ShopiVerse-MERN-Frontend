@@ -12,7 +12,7 @@ const GetSellerItems = async (sellerId, skip, limit) => {
     try {
         console.log('SELLER ID RECEIVED TO FETCH SELLER ITEMS', sellerId);
         
-        const response = await api.get(`/item/get-items/${sellerId}/${skip}/${limit}`)
+        const response = await api.get(`/item/get-items/${skip}/${limit}`)
         if (response.data.statusCode == 200) {
             return response.data.data
         }

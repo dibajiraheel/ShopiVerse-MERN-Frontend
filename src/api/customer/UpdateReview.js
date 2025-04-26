@@ -9,7 +9,7 @@ const api = axios.create({
 
 const UpdateReview = async (itemId, customerId, reviewId, data) => {
     try {
-        const response = await api.post(`/review/update-review/${itemId}/${customerId}/${reviewId}`, data)
+        const response = await api.post(`/review/update-review/${itemId}/${reviewId}`, data)
         console.log('RESPONSE IN API', response);
         if (response.data.statusCode != 200) return false
         return true

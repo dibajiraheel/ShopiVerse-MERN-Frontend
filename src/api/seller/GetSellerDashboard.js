@@ -10,7 +10,7 @@ const api = axios.create({
 
 const GetSellerDashboard = async (sellerId, days) => {
     try {
-        const response = await api.get(`/dashboard/seller/${sellerId}/${days}`)
+        const response = await api.get(`/dashboard/seller/${days}`)
         console.log('RESPONSE AFTER CALLING API', response);
         
         if (response.data.statusCode != 200) return false
