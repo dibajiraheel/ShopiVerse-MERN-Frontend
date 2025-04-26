@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-    'mode': 'dark'
+    'mode': null
 }
 
 
@@ -12,7 +12,7 @@ const themeSlice = createSlice({
     initialState,
     reducers: {
         'ChangeTheme': (state, action) => {
-            if (state.mode == 'dark' && action.payload == 'light') state.mode = 'light'
+            if (action.payload == 'light') state.mode = 'light'
             else state.mode = 'dark'
         }
     }

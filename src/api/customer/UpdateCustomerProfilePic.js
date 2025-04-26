@@ -15,7 +15,7 @@ const UpdateCustomerProfilePic = async (data) => {
         
         const response = await api.post('/auth/customer/upload-profile-pic', data)
         if (response.data.statusCode != 200) return false
-        return true
+        return response.data.data
     } catch (error) {
         console.log('Some Error Occured Whilte Updating Customer Profile Pic', error);
         return false

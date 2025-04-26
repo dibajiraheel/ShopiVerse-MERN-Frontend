@@ -13,7 +13,7 @@ const UpdateSellerProfilePic = async (data) => {
     try {
         const response = await api.post('/auth/seller/upload-profile-pic', data)
         if (response.data.statusCode != 200) return false
-        return true
+        return response.data.data
     } catch (error) {
         console.log('Some Error Occured Whilte Updating Seller Profile Pic', error);
         return false

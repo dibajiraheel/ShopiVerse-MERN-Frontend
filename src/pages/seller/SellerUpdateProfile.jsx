@@ -10,6 +10,7 @@ import UpdateSellerProfileApi from '../../api/seller/UpdateSellerProfile'
 import { UpdateSellerProfileInStore } from '../../slices/seller/SellerProfile'
 import { useNavigate } from 'react-router-dom'
 import UpdateSellerProfilePic from '../../api/seller/UpdateSellerProfilePic'
+import { UpdateAuthenticationInStore } from '../../slices/AuthenticationSlice'
 
 const UpdateSellerProfile = () => {
   const themeMode = useSelector(state => state.themeStore.mode)
@@ -29,6 +30,9 @@ const UpdateSellerProfile = () => {
   const navigate = useNavigate()
   const [error, setError] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // profile pic url
+  const profilePicUrl = useSelector(state => state.authenticationStore.profilePicUrl)
 
   const handleUpdateProfile = async (data) => {
     console.log("DATA FROM FORM", data);
@@ -68,12 +72,12 @@ const UpdateSellerProfile = () => {
 
     }
 
-
     if (data.profilePic) {
       const formData = new FormData()
       formData.append('profilePic', data.profilePic)
       const response = await UpdateSellerProfilePic(formData)
       if (!response) return
+      dispatch(UpdateAuthenticationInStore({authenticated: true, profilePicUrl: response.profilePic}))
       navigate('/seller/profile')
       setIsSubmitting(false)
       return
@@ -125,7 +129,7 @@ const UpdateSellerProfile = () => {
                     className="hidden"
                   />
                   <img
-                    src={getCookie('profilePicUrl') || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                    src={profilePicUrl || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
                     alt="Preview"
                     className="w-full h-full object-cover rounded-full"
                   />

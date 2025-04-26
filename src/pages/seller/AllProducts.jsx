@@ -216,7 +216,7 @@ const AllProducts = () => {
 
                     <div key={item._id}>
 
-                      <ProductCard itemName={item.name} itemPrice={item.price} itemId={item._id} itemImage={item.imagesUrls[0]} stock={item.stock} handleIncreaseStock={handleIncreaseStock} handleDecreaseStock={handleDecreaseStock} isSubmitting={isSubmitting[item._id]} activePageNo={activePageNo} />
+                      <ProductCard itemName={item.name} itemPrice={item.price} itemId={item._id} itemImage={item.imagesUrls[0]} sold={item.sold} stock={item.stock} handleIncreaseStock={handleIncreaseStock} handleDecreaseStock={handleDecreaseStock} isSubmitting={isSubmitting[item._id]} activePageNo={activePageNo} />
                     
                     </div>
 
@@ -243,7 +243,7 @@ const AllProducts = () => {
 
                     <div key={item._id}>
 
-                      <ProductCard itemName={item.name} itemPrice={item.price} itemId={item._id} itemImage={item.imagesUrls[0]} stock={item.stock} handleIncreaseStock={handleIncreaseStock} handleDecreaseStock={handleDecreaseStock} isSubmitting={isSubmitting[item._id]} />
+                      <ProductCard itemName={item.name} itemPrice={item.price} itemId={item._id} itemImage={item.imagesUrls[0]} sold={item.sold} stock={item.stock} handleIncreaseStock={handleIncreaseStock} handleDecreaseStock={handleDecreaseStock} isSubmitting={isSubmitting[item._id]} />
                     
                     </div>                    
 

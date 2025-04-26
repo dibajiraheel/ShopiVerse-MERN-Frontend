@@ -9,6 +9,7 @@ import UpdateCustomerProfileApi from '../../api/customer/UpdateCustomerProfile'
 import { useNavigate } from 'react-router-dom'
 import UpdateCustomerProfilePic from '../../api/customer/UpdateCustomerProfilePic'
 import { AddProfileInCustomerSlice } from '../../slices/customer/CustomerProfileSlice'
+import { UpdateAuthenticationInStore } from '../../slices/AuthenticationSlice'
 
 const UpdateCustomerProfile = () => {
   const themeMode = useSelector(state => state.themeStore.mode)
@@ -66,6 +67,10 @@ const UpdateCustomerProfile = () => {
     setIsSubmitting(false)
   }
 
+  
+  // profile pic url
+  const profilePicUrl = useSelector(state => state.authenticationStore.profilePicUrl)
+
   const handleUpdateProfilePic = async (data) => {
     console.log('DATA RECEIVED IN HANDLER OF UPDATE PROFILE PICTURE', data);
     if (data.profilePic) {
@@ -74,6 +79,7 @@ const UpdateCustomerProfile = () => {
         formData.append('profilePic', data.profilePic)
         const response = await UpdateCustomerProfilePic(formData)
         if (!response) return
+        dispatch(UpdateAuthenticationInStore({authenticated: true, profilePicUrl: response.profilePicUrl}))
         navigate('/customer/profile')
         setIsSubmitting(false)
         return
@@ -127,7 +133,7 @@ const UpdateCustomerProfile = () => {
                     />
                     <img
                         src={
-                        getCookie('profilePicUrl') ||
+                        profilePicUrl ||
                         'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                         }
                         alt="Preview"

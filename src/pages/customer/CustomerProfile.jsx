@@ -34,6 +34,10 @@ const CustomerProfile = () => {
         }
     }, [storeProfile])
 
+    
+    // profile pic url
+    const profilePicUrl = useSelector(state => state.authenticationStore.profilePicUrl)
+
 
     // Fetch Profile From Api
     const customerId = getCookie('_id')
@@ -69,7 +73,7 @@ const CustomerProfile = () => {
             <div className='flex flex-row justify-center items-center pt-20'>
                 <div className="avatar">
                     <div className="w-48 rounded-full">
-                        <img src={`${getCookie('profilePicUrl') ? getCookie('profilePicUrl') : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} `} />
+                        <img src={`${profilePicUrl ? profilePicUrl : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} `} />
                     </div>
                 </div>
             </div>

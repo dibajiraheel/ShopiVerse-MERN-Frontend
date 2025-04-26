@@ -19,7 +19,7 @@ const Login = async (credentials, mode) => {
         }
 
     } catch (error) {
-        console.log('ERROR OCCURED WHILE LOGIN', error.response.data.message);
+        console.log('ERROR OCCURED WHILE LOGIN', error);
         return error.response.data.message
     }
     

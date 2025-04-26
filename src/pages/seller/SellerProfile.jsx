@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const SellerProfile = () => {
-    
+
     const sellerProfile = useSelector(state => state.sellerProfileStore)
     const [profileAvailable, setProfileAvailable] = useState(true)
 
@@ -32,6 +32,16 @@ const SellerProfile = () => {
     }, [sellerProfile])
 
     const dispatch = useDispatch()
+
+    // profile pic url
+    const profilePicUrl = useSelector(state => state.authenticationStore.profilePicUrl)
+
+
+
+    
+
+
+
     useEffect(() => {
         
         const FetchProfile = async () => {
@@ -84,7 +94,7 @@ const SellerProfile = () => {
             <div className='flex flex-row justify-center items-center pt-20'>
               <div className="avatar">
                 <div className="w-48 rounded-full">
-                  <img src={`${getCookie('profilePicUrl') ? getCookie('profilePicUrl') : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} `} />
+                  <img src={`${ profilePicUrl ? profilePicUrl : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} `} />
                 </div>
               </div>
             </div>
