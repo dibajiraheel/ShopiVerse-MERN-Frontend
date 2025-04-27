@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
    authenticated: false,
-   profilePicUrl: ''
+   profilePicUrl: '',
+   userId: null
 }
 
 
@@ -14,8 +15,16 @@ const authenticationSlice = createSlice({
         'UpdateAuthenticationInStore': (state, action) => {
             state.authenticated = action.payload.authenticated
             state.profilePicUrl = action.payload.profilePicUrl
+            state.userId = action.payload.userId
             return
         },
+        'ResetAuthenticationStore': (state, action) => {
+            console.log('Reset Authentication Store called');
+            
+            state.authenticated = false
+            state.profilePicUrl = ''
+            state.userId = null
+        }
 
     }
 })
@@ -25,7 +34,7 @@ const authenticationSlice = createSlice({
 
 export default authenticationSlice.reducer
 
-export const { UpdateAuthenticationInStore } = authenticationSlice.actions
+export const { UpdateAuthenticationInStore, ResetAuthenticationStore } = authenticationSlice.actions
 
 
 

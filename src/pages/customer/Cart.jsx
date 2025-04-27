@@ -65,7 +65,7 @@ const Cart = () => {
     }
 
     // Hanlde Place Order
-    const userId = getCookie('_id')
+    const userId = useSelector(state => state.authenticationStore.userId)
     const [canPlaceOrder, setCanPlaceOrder] = useState(true)
     const handlePlaceOrder = async () => {
         

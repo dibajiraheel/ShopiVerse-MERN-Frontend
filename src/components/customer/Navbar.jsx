@@ -9,11 +9,11 @@ import { ResetCustomerOrdersSlice } from '../../slices/customer/CustomerOrdersSl
 import { ResetItemsInCustomerSlice } from '../../slices/customer/CustomerItemsSlice'
 import { ResetItemReviewsInCustomerSlice } from '../../slices/customer/CustomerItemReviewsSlice'
 import { ResetProfileInCustomerSlice } from '../../slices/customer/CustomerProfileSlice'
-import { UpdateAuthenticationInStore } from '../../slices/AuthenticationSlice'
+import { ResetAuthenticationStore, UpdateAuthenticationInStore } from '../../slices/AuthenticationSlice'
 
 const Navbar = ({
   customerShopiVersaNavigateUrl,
-  displaySearch,
+  displaySearch = false,
   searchRef,
   handleSearch,
   buttons = []
@@ -27,20 +27,7 @@ const Navbar = ({
 
   const dispatch = useDispatch()
   const handleLogout = () => {  
-    dispatch(ResetCustomerOrdersSlice())
-    dispatch(ResetItemsInCustomerSlice())
-    dispatch(ResetItemReviewsInCustomerSlice())
-    dispatch(ResetProfileInCustomerSlice())
-    dispatch(UpdateAuthenticationInStore({authenticated: false}))
-    
-    setCookie('_id', null)
-    setCookie('profilePicUrl', null)
-    setCookie('accessToken', null)
-
-    localStorage.clear()
-
     navigate('/login')
-
   }
 
 
@@ -60,7 +47,7 @@ const Navbar = ({
             : 'bg-gray-200'
         }`}
       >
-        {/* Left side on small screen: menu button */}
+        {/* Left side on small screen: menu button
         <div className="lg:hidden">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost">
@@ -98,7 +85,7 @@ const Navbar = ({
               ))}
             </ul>
           </div>
-        </div>
+        </div> */}
 
         {/* Brand */}
         <div className="flex-1">
@@ -138,36 +125,40 @@ const Navbar = ({
         </div>
 
         {/* Search dropdown in center on small screens */}
-        <div className="flex-15 lg:hidden flex justify-center">
-          <div className="dropdown dropdown-start">
-            <label tabIndex={0} className="btn btn-ghost border-blue-500 btn-primary normal-case text-sm">
-              Search
-            </label>
-            <div
-              tabIndex={0}
-              className={`dropdown-content z-[1] p-2 shadow rounded-box w-72 mt-3 ${
-                themeMode === 'dark' ? 'bg-transparent text-white' : 'bg-gray-100 text-black'
-              }`}
-            >
-              {displaySearch && (
-                <form onSubmit={handleSearch}>
-                  <Search
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    labelClasses={`w-full ${
-                      themeMode === 'dark'
-                        ? 'text-white bg-transparent input-accent'
-                        : 'text-black bg-white input-accent'
-                    } rounded-xl`}
-                  />
-                </form>
-              )}
+        {
+          displaySearch &&
+          <div className="flex-15 lg:hidden flex justify-center">
+            <div className="dropdown dropdown-start">
+              <label tabIndex={0} className="btn btn-ghost border-blue-500 btn-primary normal-case text-sm">
+                Search
+              </label>
+              <div
+                tabIndex={0}
+                className={`dropdown-content z-[1] p-2 shadow rounded-box w-72 mt-3 ${
+                  themeMode === 'dark' ? 'bg-transparent text-white' : 'bg-gray-100 text-black'
+                }`}
+              >
+                {displaySearch && (
+                  <form onSubmit={handleSearch}>
+                    <Search
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      labelClasses={`w-full ${
+                        themeMode === 'dark'
+                          ? 'text-white bg-transparent input-accent'
+                          : 'text-black bg-white input-accent'
+                      } rounded-xl`}
+                    />
+                  </form>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+
+        }
 
         {/* Right side: Cart and Profile */}
-        <div className="flex-none flex items-center gap-4">
+        <div className="flex-none flex items-center gap-4 mr-4">
           {/* Cart */}
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">

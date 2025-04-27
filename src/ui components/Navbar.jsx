@@ -11,7 +11,7 @@ import { ResetSellerProfileSlice } from '../slices/seller/SellerProfile'
 import { ResetSellerSingleItemSlice } from '../slices/seller/SellerSingleItemSlice'
 import { ResetSellerDashboardSlice } from '../slices/seller/SellerDashboardSlice'
 import { ChangeTheme } from '../slices/ThemeSlice'
-import { UpdateAuthenticationInStore } from '../slices/AuthenticationSlice'
+import { ResetAuthenticationStore, UpdateAuthenticationInStore } from '../slices/AuthenticationSlice'
 
 const Navbar = ({
     buttons,
@@ -35,7 +35,7 @@ const Navbar = ({
     dispatch(ResetSellerProfileSlice())
     dispatch(ResetSellerSingleItemSlice())
     dispatch(ResetSellerDashboardSlice())
-    dispatch(UpdateAuthenticationInStore({authenticated: false}))
+    dispatch(ResetAuthenticationStore())
 
     setCookie('_id', null)
     setCookie('accessToken', null)

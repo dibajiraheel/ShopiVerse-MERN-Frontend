@@ -13,7 +13,7 @@ const ProductCard = ({
     itemPageNo,
 }) => {
   return (
-    <div className='shadow-2xl scale-90 shadow-purple-300 rotate-y-25 rotate-x-25 hover:rotate-y-0 hover:rotate-x-0 duration-700 hover:scale-95 rounded-4xl backdrop-blur-lg'>
+    <div className='shadow-2xl scale-90 shadow-purple-300 duration-700 hover:scale-95 rounded-4xl backdrop-blur-lg'>
 
         <div className={`w-96 h-130 overflow-hidden card rounded-4xl`}>
             <Link to={`/customer/item/${itemId}/${itemPageNo}`}>

@@ -25,6 +25,7 @@ import CustomerOrders from './pages/customer/CustomerOrders'
 import CustomerProfile from './pages/customer/CustomerProfile'
 import CustomerUpdateProfile from './pages/customer/CustomerUpdateProfile'
 import LoadCustomerStates from './pages/LoadCustomerStates'
+import EnsureReset from './pages/EnsureReset'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />} > 
@@ -33,9 +34,9 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route index element={<Navigate to={'/login'} />} />
 
     {/*Common Routes*/}
-    <Route path='/signup' element={<EnsureAuthentication children={<Signup />} authenticationRequired={false} />} />
-    <Route path='/login' element={<EnsureAuthentication children={<Login />} authenticationRequired={false} />} />
-    <Route path='/forgot-password' element={<EnsureAuthentication children={<ForgotPassword />} authenticationRequired={false} />} />
+    <Route path='/signup' element={<EnsureReset children={<Signup />} />} />
+    <Route path='/login' element={<EnsureReset children={<Login />} />} />
+    <Route path='/forgot-password' element={<EnsureReset children={<ForgotPassword />} />} />
     
     {/*Seller Routes*/}
     <Route path='/dashboard' element={<EnsureAuthentication children={<Dashboard />} authenticationRequired={true} />} />
@@ -50,12 +51,12 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/seller/update/profile' element={<EnsureAuthentication children={<UpdateSellerProfile />} authenticationRequired={true} />} />
     
     {/*Customer Routes*/}
-    <Route path='/home' element={<LoadCustomerStates children={<EnsureAuthentication children={<Home />} authenticationRequired={true} />} />} />
-    <Route path='/customer/item/:itemId/:itemPageNo' element={<LoadCustomerStates children={<EnsureAuthentication children={<CustomerProduct />} authenticationRequired={true} />} />} />
-    <Route path='/customer/cart' element={<LoadCustomerStates children={<EnsureAuthentication children={<Cart />} authenticationRequired={true} />} />} />
-    <Route path='/customer/orders' element={<LoadCustomerStates children={<EnsureAuthentication children={<CustomerOrders />} authenticationRequired={true} />} />} />
-    <Route path='/customer/profile' element={<LoadCustomerStates children={<EnsureAuthentication children={<CustomerProfile />} authenticationRequired={true} />} />} />
-    <Route path='/customer/update-profile' element={<LoadCustomerStates children={<EnsureAuthentication children={<CustomerUpdateProfile />} authenticationRequired={true} />} />} /> 
+    <Route path='/home' element={<EnsureAuthentication children={<LoadCustomerStates children={<Home />} />} authenticationRequired={true}  />} />
+    <Route path='/customer/item/:itemId/:itemPageNo' element={<EnsureAuthentication children={<LoadCustomerStates children={<CustomerProduct />} />} authenticationRequired={true} />} />
+    <Route path='/customer/cart' element={<EnsureAuthentication children={<LoadCustomerStates children={<Cart />} />} authenticationRequired={true} />} />
+    <Route path='/customer/orders' element={<EnsureAuthentication children={<LoadCustomerStates children={<CustomerOrders />} />} authenticationRequired={true} />} />
+    <Route path='/customer/profile' element={<EnsureAuthentication children={<LoadCustomerStates children={<CustomerProfile />} />} authenticationRequired={true} />} />
+    <Route path='/customer/update-profile' element={<EnsureAuthentication children={<LoadCustomerStates children={<CustomerUpdateProfile />} />} authenticationRequired={true} />} /> 
   </Route>
 ))
 

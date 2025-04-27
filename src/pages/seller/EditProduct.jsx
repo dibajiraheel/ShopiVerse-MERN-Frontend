@@ -98,7 +98,7 @@ const EditProduct = () => {
   const [formError, setFormError] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const sellerId = getCookie('_id')
+  const sellerId = useSelector(state => state.authenticationStore.userId)
 
   const handleItemUpdate = async (data) => {
     console.log('Submitted Data:', data)

@@ -69,7 +69,7 @@ const CustomerOrders = () => {
 
   // Fetch Orders From Api
   const [ordersFetchedFromApi, setOrdersFetchedFromApi] = useState(false)
-  const userId = getCookie('_id')
+  const userId = useSelector(state => state.authenticationStore.userId)
   
   const dispatch = useDispatch()
   const FetchCustomerOrders = async (userId) => {

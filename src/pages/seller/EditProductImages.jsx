@@ -17,7 +17,7 @@ const EditProductImages = () => {
 
     const {itemId} = useParams()
     const {activePageNo} = useParams()
-    const sellerId = getCookie('_id')
+    const sellerId = useSelector(state => state.authenticationStore.userId)
 
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [imagesError, setImagesError] = useState(false)

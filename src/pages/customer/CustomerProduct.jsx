@@ -72,7 +72,7 @@ const CustomerProduct = () => {
   const reviews = useSelector(state => state.customerItemReviewsStore.reviews)
   const [review, setReview] = useState([])
   const [reviewFound, setReviewFound] = useState(true)
-  const userId = getCookie('_id')
+  const userId = useSelector(state => state.authenticationStore.userId)
   useEffect(() => {
     if ((Object.keys(reviews)).length > 0) {
       const review = reviews[itemId]
@@ -119,11 +119,15 @@ const CustomerProduct = () => {
   useEffect(() => {
     if (review.length > 0) {
       review.forEach((eachReview) => {
+        console.log('UPDATE STATE', updateStates, userId);
         if (eachReview.customerId == userId) {
           setUpdateStates((currentUpdateStates) => ({...currentUpdateStates, [eachReview._id] : false}))
+          
         }
       })
     }
+    console.log('UPDATE STATES = ', updateStates);
+    
   }, [review])
 
   const handleSwitchUpdateReview = (revId) => {    
@@ -448,7 +452,7 @@ const CustomerProduct = () => {
                     onChange={field.onChange}
                     {...field}
                     type={'text'}
-                    className={`w-full px-3 py-2 rounded-md border focus:outline-none ${themeMode === 'dark' ? 'bg-gray-800 text-white border-purple-400' : 'bg-white text-black border-purple-600'}`}
+                    inputClasses={`w-full px-3 py-2 rounded-md border focus:outline-none ${themeMode === 'dark' ? 'bg-gray-800 text-white border-purple-400' : 'bg-white text-black border-purple-600'}`}
                   />
                 )}
               />
@@ -464,7 +468,7 @@ const CustomerProduct = () => {
                     type={'number'}
                     maxNumAllowed={5}
                     minNumAllowed={0}
-                    className={`w-full px-3 py-2 rounded-md border focus:outline-none ${themeMode === 'dark' ? 'bg-gray-800 text-white border-purple-400' : 'bg-white text-black border-purple-600'}`}
+                    inputClasses={`w-full px-3 py-2 rounded-md border focus:outline-none ${themeMode === 'dark' ? 'bg-gray-800 text-white border-purple-400' : 'bg-white text-black border-purple-600'}`}
                   />
                 )}
               />

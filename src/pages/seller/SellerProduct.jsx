@@ -170,7 +170,7 @@ const SellerProduct = () => {
   
 
   // handle delete product
-  const userId = getCookie('_id')
+  const userId = useSelector(state => state.authenticationStore.userId)
   const [isDeleting, setIsDeleting] = useState(false)
   const handleDeleteProduct = async () => {
     setIsDeleting(true)

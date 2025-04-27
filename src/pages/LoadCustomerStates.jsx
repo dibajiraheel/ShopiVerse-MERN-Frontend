@@ -35,7 +35,7 @@ const LoadCustomerStates = ({children}) => {
 
     // check each slice state one by one
     const dispatch = useDispatch()
-    const customerId = getCookie('_id')
+    const customerId = useSelector(state => state.authenticationStore.userId)
     console.log('CUSTOMER ID FOUND IN CUSTOMER STATES', customerId);
     
     // 1. customer items slice

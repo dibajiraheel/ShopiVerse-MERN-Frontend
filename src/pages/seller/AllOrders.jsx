@@ -16,7 +16,7 @@ const AllOrders = () => {
 
   const themeMode = useSelector(state => state.theme)
   const buttons = sellerButtons();
-  const sellerId = getCookie('_id')
+  const sellerId = useSelector(state => state.authenticationStore.userId)
   const dispatch = useDispatch()
 
   

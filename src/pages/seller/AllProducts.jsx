@@ -26,7 +26,7 @@ const AllProducts = () => {
 
   console.log(totalItems, pagesAlreadyFetched, items)
   
-  const sellerId = getCookie('_id')
+  const sellerId = useSelector(state => state.authenticationStore.userId)
 
   const [activePageNo, setActivePageNo] = useState(1)
   const [pagesFromTo, setPagesFromTo] = useState([])
