@@ -67,8 +67,8 @@ const UpdateSellerProfile = () => {
   
       dispatch(UpdateSellerProfileInStore({ profile: { ...formData } }))
       setIsSubmitting(false)
-      navigate('/seller/profile')
-      return
+      // navigate('/seller/profile')
+      // return
 
     }
 
@@ -78,12 +78,13 @@ const UpdateSellerProfile = () => {
       const response = await UpdateSellerProfilePic(formData)
       if (!response) return
       dispatch(UpdateAuthenticationInStore({authenticated: true, profilePicUrl: response.profilePic}))
-      navigate('/seller/profile')
       setIsSubmitting(false)
-      return
     }
-
+    
     setIsSubmitting(false)
+    navigate('/seller/profile')
+    return
+    
   }
 
   return (
