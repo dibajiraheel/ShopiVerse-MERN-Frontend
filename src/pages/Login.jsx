@@ -72,6 +72,10 @@ const LoginPage = () => {
         <p className="text-center text-sm text-gray-400">
           Your gateway to endless shopping possibilities
         </p>
+        <p className="text-xs text-center">Default Credentials For {isSellerMode ? 'Seller' : 'Customer'}</p>
+        <p className="text-xs text-center">{isSellerMode ? 'Email: dibajiraheel@gmail.com' : 'Email : raheeldibaji@gmail.com'}</p>
+        <p className="text-xs text-center">{isSellerMode ? 'Password: 12345678' : 'Password: 123'}</p>
+        <p className="text-xs text-center text-yellow-400">Our Bakend Is Deployed On Free Tier Of Render And It Goes To Sleep After 15 Minutes Of Inactivity And It Takes Around 2 to 3 Minutes To Wakeup After Receving First Request, So Please Wait Few Minutes If It Takes Time.</p>
 
         {/* Toggle Switch for Seller Mode */}
         <div className="flex items-center justify-between">
